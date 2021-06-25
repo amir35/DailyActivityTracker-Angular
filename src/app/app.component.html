@@ -1,0 +1,24 @@
+<h1 style="color: blue;">Daily Activity Tracker</h1>
+
+<div>
+    <div *ngIf="label" style="color: blue;">
+        No Activities to track! Start by adding one
+    </div>
+    <div *ngIf="todoNotEmpty">
+        <div *ngFor="let todo of Todos; let i=index">
+            <input class="strikethrough" type="checkbox" (change)="yourfunc($event)">
+            <span>   {{i+1}}. {{todo}} </span>
+        </div>
+    </div>
+    <div>
+        <br>
+        <input type="text" name="activity" id="act" [(ngModel)]="newToDo">
+        <span *ngIf="error">Please enter an activity</span>
+    </div>
+    <div>
+        <br>
+        <button name="addAct" (click)=addActivity()>Add an Activity!</button>&nbsp;
+        <button name="clear" (click)="clearAll()">Clear All</button>
+    </div>
+
+</div>
